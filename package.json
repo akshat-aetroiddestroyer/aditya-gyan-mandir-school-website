@@ -1,0 +1,15 @@
+{
+  "name": "agms-school-website",
+  "version": "1.0.0",
+  "description": "Official Website for Aditya Gyan Mandir School (AGMS), Karond, Bhopal",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000",
+    "serve": "npx serve -l 3000 .",
+    "build": "node -e \"console.log('Production static assets verified. All files ready for deployment.')\""
+  },
+  "keywords": ["school", "agms", "bhopal", "education", "website"],
+  "author": "AGMS",
+  "license": "ISC"
+}

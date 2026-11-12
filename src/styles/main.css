@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-maroon: #7D0A14;
+  --color-maroon-dark: #58060D;
+  --color-maroon-light: #9B111D;
+  --color-maroon-subtle: #FDF2F3;
+  --color-gold: #D4AF37;
+  --color-gold-warm: #E5A823;
+  --color-gold-light: #FDE68A;
+  --color-gold-bg: rgba(229, 168, 35, 0.15);
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  color: #1E293B;
+  background-color: #FFFFFF;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility Focus Ring */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-gold-warm);
+  outline-offset: 2px;
+}
+
+/* Custom Typography Helpers */
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Brand Button Styles */
+.btn-primary-maroon {
+  background-color: var(--color-maroon);
+  color: #FFFFFF;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 14px rgba(125, 10, 20, 0.25);
+}
+
+.btn-primary-maroon:hover {
+  background-color: var(--color-maroon-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(125, 10, 20, 0.35);
+}
+
+.btn-primary-maroon:active {
+  background-color: var(--color-maroon-dark);
+  transform: translateY(0);
+}
+
+.btn-ghost-white {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-ghost-white:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.65);
+  transform: translateY(-1px);
+}
+
+/* Hero Background & Refined Gradient Overlay
+   Smooth dark gradient on the left behind text, 100% transparent on right for bright classroom */
+.hero-gradient-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.94) 0%,
+    rgba(15, 23, 42, 0.82) 32%,
+    rgba(15, 23, 42, 0.40) 52%,
+    rgba(15, 23, 42, 0.08) 68%,
+    transparent 82%
+  );
+}
+
+@media (max-width: 640px) {
+  .hero-gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.88) 0%,
+      rgba(15, 23, 42, 0.75) 60%,
+      rgba(15, 23, 42, 0.90) 100%
+    );
+  }
+}
+
+/* Mobile Drawer Transitions */
+#mobile-drawer {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+#mobile-drawer.drawer-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#mobile-drawer.drawer-closed {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Navigation Link Underline Accent */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-maroon);
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-maroon);
+}
